@@ -5,7 +5,7 @@
 # Use boto3 to move files into s3
 #
 import boto3
-import os
+import sys, os
 
 def mmmoveit(mfile):
   s3 = boto3.client('s3')
@@ -17,10 +17,11 @@ def mmmoveit(mfile):
   )
 
 def process(args):  # first one is name of script, second one is name of file to ssshift
-  if len(args) <> 2:
-    exit(1)
-  else:
+  if len(args) == 2:
     mmmoveit(args[1])
+  else:
+    print(f"usage: {args[0]} <file>\n\tCopies a file to s3")
+    exit(1)
 
 if __name__ == '__main__':
   process(sys.argv)
