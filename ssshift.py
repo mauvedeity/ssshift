@@ -15,6 +15,7 @@ def mmmoveit(mfile):
     Bucket= 'mauvedeity-backup',
     Key = remote
   )
+  print(f"{mfile} copied to {remote}")
 
 def process(args):  # first one is name of script, second one is name of file to ssshift
   if len(args) == 2:
